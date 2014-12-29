@@ -49,6 +49,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.master_pub = 'salt/salt-keys/configkey.pub'
       config.master_config = "salt/salt-configs/master"
 
+      config.install_master = true
       config.run_highstate = false
       config.install_type = "git"
       config.install_args = "v2014.1.5"
