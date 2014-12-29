@@ -19,7 +19,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
     config.vm.hostname = role
     config.vm.provision :salt do |config|
-      config.install_config = true
 
       config.minion_config = "salt/salt-configs/minion"
       config.minion_key = "salt/salt-keys/minion2.pem"
@@ -41,7 +40,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.hostname = 'salt-master'
     config.vm.network "private_network", ip: "192.168.50.3"
     config.vm.provision :salt do |config|
-      config.install_config = true
 
       config.minion_config = "salt/salt-configs/minion"
       config.minion_key = "salt/salt-keys/minion2.pem"
@@ -49,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       config.master_key = 'salt/salt-keys/configkey.pem'
       config.master_pub = 'salt/salt-keys/configkey.pub'
-      config.master_config = "salt/salt-configs/config"
+      config.master_config = "salt/salt-configs/master"
 
       config.run_highstate = false
       config.install_type = "git"
