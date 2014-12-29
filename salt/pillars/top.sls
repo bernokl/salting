@@ -1,3 +1,5 @@
 base:
   '*':
     - requirements
+  'content*':
+    - apache
