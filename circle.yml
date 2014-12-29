@@ -1,0 +1,17 @@
+machine:
+  services:
+    - docker
+
+test:
+      override:
+        - docker build -t sporkd2/docker_stuff:apache-$CIRCLE_BRANCH-$CIRCLE_BUILD_NUM docker/apache/
+          #        - docker build -t sporkd2/docker_stuff:mysql-$CIRCLE_BRANCH-$CIRCLE_BUILD_NUM docker/mysql/
+
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push sporkd2/docker_stuff:apache-$CIRCLE_BRANCH-$CIRCLE_BUILD_NUM
+        #        - docker push sporkd2/docker_stuff:mysql-$CIRCLE_BRANCH-$CIRCLE_BUILD_NUM
