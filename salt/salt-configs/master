@@ -344,7 +344,7 @@ auto_accept: True
 # Example:
 file_roots:
   base:
-    - /srv/roots/
+    - /root/salting/salt/roots
 #   dev:
 #     - /srv/salt/dev/services
 #     - /srv/salt/dev/states
@@ -467,7 +467,7 @@ file_roots:
 # highstate format, and is generally just key/value pairs.
 pillar_roots:
   base:
-    - /srv/pillars
+    - /root/salting/salt/pillars
 #
 #ext_pillar:
 #  - hiera: /etc/hiera.yaml
