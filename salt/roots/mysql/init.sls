@@ -1,7 +1,7 @@
 install_mysql:
   pkg.installed:
     - pkgs:
-      - mysql-server
+      - mysql-server-5.5
       - debconf-utils
 
 mysql_debconf:
@@ -14,7 +14,18 @@ mysql_debconf:
     - require_in:
         - pkg: install_mysql
 
-/etc/mysql/my.cnf:
+mycnf_file:
   file.managed:
+    - name: /etc/mysql/my.cnf 
     - source: salt://mysql/files/my.cnf
     - template: jinja
+    - require_in:
+        - pkg: install_mysql
+    - require:
+        - file: etc_mysql_folder
+
+etc_mysql_folder
+  file.directory:
+    - name: /etc/mysql
+    - makedirs: True
+   
