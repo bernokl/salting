@@ -3,5 +3,6 @@ base:
     - requirements
   'content*':
     - apache
+    - wordpress
   'mysql*':
-    - mysql
+    - mysql.wordpress
