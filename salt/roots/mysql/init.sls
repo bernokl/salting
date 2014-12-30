@@ -21,11 +21,6 @@ mycnf_file:
     - template: jinja
     - require_in:
         - pkg: install_mysql
-    - require:
-        - file: etc_mysql_folder
+    - makedirs: true
 
-etc_mysql_folder
-  file.directory:
-    - name: /etc/mysql
-    - makedirs: True
    
