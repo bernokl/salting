@@ -48,8 +48,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.minion_key = "salt/salt-keys/minion2.pem"
       config.minion_pub = "salt/salt-keys/minion2.pub"
 
-      config.master_key = 'salt/salt-keys/configkey.pem'
-      config.master_pub = 'salt/salt-keys/configkey.pub'
+      config.master_key = 'salt/salt-keys/masterkey.pem'
+      config.master_pub = 'salt/salt-keys/masterkey.pub'
       config.master_config = "salt/salt-configs/master"
 
       config.install_master = true
