@@ -5,4 +5,4 @@ base:
     - apache
     - wordpress
   'mysql*':
-    - mysql.wordpress
+    - mysql
