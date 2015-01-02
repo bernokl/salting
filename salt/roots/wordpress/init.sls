@@ -24,6 +24,13 @@ get_wp-cli:
     - symlink
     - target: /home/vagrant/.wp-cli/bin/wp
 
+/var/www:
+  file.directory:
+    - user: www-data
+    - group: www-data
+    - recurse:
+        - user
+        - group
 
 ###################### THIS STILL NEEDS DONE ######################################
 # This command tells wp-cli to create our wp-config.php, DB info needs to be the same as above
