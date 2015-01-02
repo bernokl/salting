@@ -55,13 +55,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network "private_network", ip: "192.168.50.3"
     config.vm.provision :salt do |config|
 
-      config.minion_config = "salt/salt-configs/minion"
+      config.minion_config = "salt/salt-configs/minion_vagrant"
       config.minion_key = "salt/salt-keys/minion2.pem"
       config.minion_pub = "salt/salt-keys/minion2.pub"
 
       config.master_key = 'salt/salt-keys/masterkey.pem'
       config.master_pub = 'salt/salt-keys/masterkey.pub'
-      config.master_config = "salt/salt-configs/master"
+      config.master_config = "salt/salt-configs/master_vagrant"
 
       config.install_master = true
       config.run_highstate = false
