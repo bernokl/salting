@@ -6,3 +6,4 @@ base:
     - wordpress
   'mysql*':
     - mysql
+    - mysql.user
