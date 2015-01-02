@@ -7,3 +7,4 @@ base:
   'mysql*':
     - mysql
     - mysql.user
+    - mysql.databases
