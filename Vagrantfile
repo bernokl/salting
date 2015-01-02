@@ -17,6 +17,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       v.customize ["modifyvm", :id, "--memory", "256"]
     end
     config.vm.hostname = role
+
+      if role.eql? 'mysql'
+        config.vm.network "private_network", ip: "192.168.50.4"
+      end
+      if role.eql? 'content'
+        config.vm.network "private_network", ip: "192.168.50.5"
+      end
+      if role.eql? 'api'      
+        config.vm.network "private_network", ip: "192.168.50.6"
+      end
+
     config.vm.provision :salt do |config|
 
       if role.eql? 'mysql' 

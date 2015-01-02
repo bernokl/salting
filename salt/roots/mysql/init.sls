@@ -3,6 +3,7 @@ install_mysql:
     - pkgs:
       - mysql-server-5.5
       - debconf-utils
+      - percona-toolkit
 
 mysql_debconf:
   debconf.set:
