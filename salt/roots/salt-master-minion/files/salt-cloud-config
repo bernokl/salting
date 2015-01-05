@@ -1,0 +1,10 @@
+providers:
+  matts_aws_account:
+    ssh_interface: public
+    id: {{ pillar['aws']['id'] }}
+    key: {{ pillar['aws']['key'] }}
+    keyname: {{ pillar['aws']['keyname'] }}
+    securitygroup: {{ pillar['aws']['sg'] }}
+    private_key: {{ pillar['aws']['private_key'] }}
+    provider: ec2
+    location: us-east-1
