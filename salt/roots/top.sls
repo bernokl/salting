@@ -9,3 +9,5 @@ base:
     - mysql
     - mysql.user
     - mysql.databases
+  'salt-master*':
+    - salt-master-minion
