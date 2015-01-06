@@ -7,3 +7,6 @@ env.hosts=['104.236.137.236']
 def run_highstate():
     sudo("salt 'salt-master*' state.sls salt-master-minion.update")
     sudo("salt '*' state.highstate")
+
+def test_run_highstate():
+    sudo("salt '*' state.highstate test=True")
