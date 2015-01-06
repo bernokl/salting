@@ -1,0 +1,13 @@
+machine:
+  python:
+    version: 2.7.5
+
+dependencies:
+  pre:
+    - sudo apt-get install fabric
+
+deployment:
+    production:
+      branch: master
+      commands:
+        - fab run_highstate
