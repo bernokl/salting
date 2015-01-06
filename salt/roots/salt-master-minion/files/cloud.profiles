@@ -4,3 +4,9 @@ base_ec2:
   size: Micro Instance
   ssh_username: ec2-user
   del_root_vol_on_destroy: True
+base_ec2_berno:
+  provider: berno_aws_account
+  image: ami-16d7b37e
+  size: Micro Instance
+  ssh_username: ec2-user
+  del_root_vol_on_destroy: True

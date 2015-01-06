@@ -8,3 +8,13 @@ providers:
     private_key: {{ pillar['aws']['private_key'] }}
     provider: ec2
     location: us-east-1
+  berno_aws_account:
+    ssh_interface: public
+    id: {{ pillar['aws']['berno']['id'] }}
+    key: {{ pillar['aws']['berno']['key'] }}
+    keyname: {{ pillar['aws'][['berno']'keyname'] }}
+    securitygroup: {{ pillar['aws']['berno']['sg'] }}
+    private_key: {{ pillar['aws']['berno']['private_key'] }}
+    provider: ec2
+    location: us-east-1
+
