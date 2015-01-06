@@ -15,7 +15,7 @@ mysql.db: 'mysql'
 mysql.unix_socket: '/var/run/mysqld/mysqld.sock'
 mysql.charset: 'utf8'
 
-
+### Just testing with a blank commit
 
 # Per default the minion will automatically include all config files
 # from minion.d/*.conf (minion.d is a directory in the same directory
