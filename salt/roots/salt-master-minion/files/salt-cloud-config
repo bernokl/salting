@@ -1,13 +1,15 @@
 providers:
   matts_aws_account:
     ssh_interface: public
-    id: {{ pillar['aws']['id'] }}
-    key: {{ pillar['aws']['key'] }}
-    keyname: {{ pillar['aws']['keyname'] }}
-    securitygroup: {{ pillar['aws']['sg'] }}
-    private_key: {{ pillar['aws']['private_key'] }}
+    id: {{ pillar['aws']['matt']['id'] }}
+    key: {{ pillar['aws']['matt']['key'] }}
+    keyname: {{ pillar['aws']['matt']['keyname'] }}
+    securitygroup: {{ pillar['aws']['matt']['sg'] }}
+    private_key: {{ pillar['aws']['matt']['private_key'] }}
     provider: ec2
     location: us-east-1
+    minion:
+        master: {{ pillar['aws']['matt']['master_ip'] }}
   berno_aws_account:
     ssh_interface: public
     id: {{ pillar['aws']['berno']['id'] }}
@@ -17,4 +19,5 @@ providers:
     private_key: {{ pillar['aws']['berno']['private_key'] }}
     provider: ec2
     location: us-east-1
-
+    minion:
+        master: {{ pillar['aws']['berno']['master_ip'] }}
