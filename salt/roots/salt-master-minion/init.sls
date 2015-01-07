@@ -14,3 +14,7 @@
 /etc/salt/cloud.profiles:
   file.managed:
     - source: salt://salt-master-minion/files/cloud.profiles
+
+/etc/salt/master.d/reactor.conf:
+  file.managed:
+    - source: salt://salt-master-minion/files/reactor.conf
