@@ -30,11 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.provision :salt do |config|
 
-      if role.eql? 'mysql' 
-	config.minion_config = "salt/salt-configs/minion_mysql"
-      else
-        config.minion_config = "salt/salt-configs/minion_vagrant"
-      end
+      config.minion_config = "salt/salt-configs/minion_vagrant"
       config.minion_key = "salt/salt-keys/minion2.pem"
       config.minion_pub = "salt/salt-keys/minion2.pub"
 
