@@ -3,25 +3,32 @@ include:
   - mysql.databases
 
 berno:
-  mysql_user.present:
-    - host: localhost
-    - password: bobcat
-
-berno_mysql:
-   mysql_grants.present:
-    - grant: all
-    - database: '*.*'
+  module.run:
+    - name: mysql.user_create
     - user: berno
     - host: localhost
-
-wp_user:
-  mysql_user.present:
-    - host: 192.168.50.5
     - password: bobcat
 
-wp_mysql:
-   mysql_grants.present:
+berno_grants:
+  module.run:
+    - name: mysql.grant_add
+    - user: berno
+    - host: localhost
+    - database: '*.*'
     - grant: all
-    - database: 'wordpress_db.*'
+
+wp_user:
+  module.run:
+    - name: mysql.user_create
     - user: wp_user
-    - host: 192.168.50.5 
+    - host: localhost
+    - password: bobcat
+
+wp_user_grants:
+  module.run:
+    - name: mysql.grant_add
+    - user: wp_user
+    - host: localhost
+    - database: 'wordpress_db.*'
+    - grant: all
+
