@@ -1,13 +1,9 @@
 base:
-  '*':
+  'dev*':
     - requirements
-  'content*':
-    - apache
-    - php
-    - wordpress
-  'mysql*':
+  'dev-mysql*':
     - mysql
-    - mysql.user
-    - mysql.databases
-  'salt-master*':
-    - salt-master-minion
+    - mysql.db_and_user
+prod:
+  'prod*':
+    - requirements
