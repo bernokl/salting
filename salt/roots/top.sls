@@ -8,7 +8,7 @@ base:
     - mysql
     - mysql.db_and_user
 prod:
-  'prod*'
+  'prod*':
     - mysql
     - mysql.db_and_user
   'salt-master*':
