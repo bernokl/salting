@@ -1,13 +1,19 @@
-install_mysql:
+mysql_packages:
   pkg.installed:
     - pkgs:
-      - mysql-server-5.5
       - debconf-utils
       - percona-toolkit
 
+install_mysql:
+    pkg.installed:
+     - name: mysql-server-5.5
+     - pkgs: 
+        - mysql-server-5.5
+     - service: running
+
 mysql_debconf:
   debconf.set:
-    - name: mysql-server-5.5
+    - name: mysql-server-5.5-setup
     - data:
         'mysql-server/root_password': {'type': 'password', 'value': 'password'}
         'mysql-server/root_password_again': {'type': 'password', 'value': 'password'}
@@ -24,4 +30,3 @@ mycnf_file:
         - pkg: install_mysql
     - makedirs: true
 
-   

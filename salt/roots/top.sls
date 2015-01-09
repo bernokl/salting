@@ -7,7 +7,6 @@ base:
     - wordpress
   'mysql*':
     - mysql
-    - mysql.user
-    - mysql.databases
+    - mysql.db_and_user
   'salt-master*':
     - salt-master-minion
