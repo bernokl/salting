@@ -1,6 +1,3 @@
-include:
-  - mysql.minion_confd
-
 mysql_packages:
   pkg.installed:
     - pkgs:
