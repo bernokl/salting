@@ -6,9 +6,10 @@ dependencies:
   pre:
     - sudo apt-get install fabric
 test:
-  branch:
-    pre:
-      - fab test_run_highstate_dev
+  dev:
+    branch: dev
+      pre:
+        - fab test_run_highstate_dev
 deployment:
     production:
       branch: master
