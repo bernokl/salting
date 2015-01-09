@@ -6,8 +6,11 @@ base:
     - mysql.db_and_user
   'mysql*':
     - mysql
+<<<<<<< HEAD
     - mysql.user
     - mysql.databases
+=======
+>>>>>>> dev
     - mysql.db_and_user
 prod:
   'prod*':
