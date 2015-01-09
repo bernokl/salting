@@ -1,11 +1,14 @@
 base:
   '*':
     - requirements
-  'content*':
-    - apache
-    - php
-    - wordpress
+  'dev*':
+    - mysql
+    - mysql.db_and_user
   'mysql*':
+    - mysql
+    - mysql.db_and_user
+prod:
+  'prod*'
     - mysql
     - mysql.db_and_user
   'salt-master*':

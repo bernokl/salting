@@ -1,3 +1,4 @@
+*.directory
 circle.yml
 *.log
 *.swp
