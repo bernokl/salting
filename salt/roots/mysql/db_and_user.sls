@@ -18,8 +18,13 @@ berno:
   mysql_user.present:
     - host: localhost
     - password: bobcat
-    - require:
-        - wordpress_db
+    - connection_host: localhost
+    - connection_port: 3306
+    - connection_user: 'root'
+    - connection_pass: 'password'
+    - connection_db: 'mysql'
+    - connection_unix_socket: '/var/run/mysqld/mysqld.sock'
+    - connection_charset: utf8
 
 berno_mysql:
    mysql_grants.present:
@@ -27,15 +32,27 @@ berno_mysql:
     - database: '*.*'
     - user: berno
     - host: localhost
-    - require:
-        - wordpress_db
+    - connection_host: localhost
+    - connection_port: 3306
+    - connection_user: 'root'
+    - connection_pass: 'password'
+    - connection_db: 'mysql'
+    - connection_unix_socket: '/var/run/mysqld/mysqld.sock'
+    - connection_charset: utf8
+
 
 wp_user:
   mysql_user.present:
     - host: 192.168.50.5
     - password: bobcat
-    - require:
-        - wordpress_db
+    - connection_host: localhost
+    - connection_port: 3306
+    - connection_user: 'root'
+    - connection_pass: 'password'
+    - connection_db: 'mysql'
+    - connection_unix_socket: '/var/run/mysqld/mysqld.sock'
+    - connection_charset: utf8
+
 
 wp_mysql:
    mysql_grants.present:
@@ -43,5 +60,11 @@ wp_mysql:
     - database: 'wordpress_db.*'
     - user: wp_user
     - host: 192.168.50.5
-    - require:
-        - wordpress_db                           
+    - connection_host: localhost
+    - connection_port: 3306
+    - connection_user: 'root'
+    - connection_pass: 'password'
+    - connection_db: 'mysql'
+    - connection_unix_socket: '/var/run/mysqld/mysqld.sock'
+    - connection_charset: utf8
+
