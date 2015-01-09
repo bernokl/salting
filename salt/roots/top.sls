@@ -1,7 +1,7 @@
 base:
   'dev*':
     - requirements
-  'dev-mysql*'
+  'dev-mysql*':
     - mysql
     - mysql.db_and_user
 prod:
