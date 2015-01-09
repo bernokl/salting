@@ -1,8 +1,6 @@
 base:
   'dev*':
-    - apache
+    - requirements
 prod:
   'prod*':
-    - prod
-  'salt-master*':
-    - salt-master-minion
+    - requirements
