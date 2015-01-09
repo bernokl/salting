@@ -7,3 +7,6 @@ base:
 prod:
   'prod*':
     - requirements
+  'prod-mysql*':
+    - mysql
+    - mysql.db_and_user
