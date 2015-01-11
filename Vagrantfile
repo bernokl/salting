@@ -7,8 +7,14 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  %w{
    api
-   content
    mysql
+   content
+   dev-mysql
+   dev-content
+   dev-mysql
+   prod-api
+   prod-content
+   prod-mysql
  }.each_with_index do |role, i|
   config.vm.define role  do |config|
     config.vm.box = "trusty"
@@ -21,10 +27,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       if role.eql? 'mysql'
         config.vm.network "private_network", ip: "192.168.50.4"
       end
+      if role.eql? 'dev-mysql'
+        config.vm.network "private_network", ip: "192.168.50.4"
+      end
+      if role.eql? 'prod-mysql'
+        config.vm.network "private_network", ip: "192.168.50.4"
+      end
       if role.eql? 'content'
         config.vm.network "private_network", ip: "192.168.50.5"
       end
+      if role.eql? 'dev-content'
+        config.vm.network "private_network", ip: "192.168.50.5"
+      end
+      if role.eql? 'prod-content'
+        config.vm.network "private_network", ip: "192.168.50.5"
+      end
       if role.eql? 'api'      
+        config.vm.network "private_network", ip: "192.168.50.6"
+      end
+      if role.eql? 'dev-api'      
+        config.vm.network "private_network", ip: "192.168.50.6"
+      end
+      if role.eql? 'prod-api'      
         config.vm.network "private_network", ip: "192.168.50.6"
       end
 
