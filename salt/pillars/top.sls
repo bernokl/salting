@@ -1,6 +1,6 @@
 base:
   'dev*':
-    - apache
+    - apache-dev
 prod:
   'prod*':
-    - apache
+    - apache-prod
