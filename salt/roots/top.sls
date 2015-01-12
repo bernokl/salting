@@ -1,4 +1,7 @@
 base:
+  '*':
+    - global
+Dev:
   'dev*':
     - requirements
   'dev-mysql*':
