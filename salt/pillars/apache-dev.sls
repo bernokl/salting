@@ -1,2 +1,2 @@
 apache:
-  loglevel: warn
+  loglevel: debug
