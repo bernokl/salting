@@ -379,10 +379,6 @@ file_client: local
 file_roots:
   base:
     - /srv/roots/
-  dev:
-    - /srv/roots/
-  prod:
-    - /srv/roots/
 ##   dev:
 #     - /srv/salt/dev/services
 #     - /srv/salt/dev/states
@@ -415,10 +411,6 @@ file_roots:
 # also be configured on the minion:
 pillar_roots:
   base:
-    - /srv/pillars/
-  dev:
-    - /srv/pillars/
-  prod:
     - /srv/pillars/
 
 

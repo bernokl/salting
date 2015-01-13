@@ -6,9 +6,9 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  %w{
-   api
-   mysql
-   content
+   vagrant-api
+   vagrant-mysql
+   vagrant-content
    dev-mysql
    dev-content
    dev-mysql
@@ -21,11 +21,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box = "trusty"
     config.vm.provider "virtualbox" do |v|
     config.vm.synced_folder "salt/", "/srv", owner: "root", group: "root"
+    config.vm.synced_folder "core/", "/srvc", owner: "root", group: "root"
       v.customize ["modifyvm", :id, "--memory", "256"]
     end
     config.vm.hostname = role
 
-      if role.eql? 'mysql'
+      if role.eql? 'vagrant-mysql'
         config.vm.network "private_network", ip: "192.168.50.4"
       end
       if role.eql? 'dev-mysql'
@@ -34,7 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       if role.eql? 'prod-mysql'
         config.vm.network "private_network", ip: "192.168.50.4"
       end
-      if role.eql? 'content'
+      if role.eql? 'vagrant-content'
         config.vm.network "private_network", ip: "192.168.50.5"
       end
       if role.eql? 'dev-content'
@@ -43,7 +44,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       if role.eql? 'prod-content'
         config.vm.network "private_network", ip: "192.168.50.5"
       end
-      if role.eql? 'api'      
+      if role.eql? 'vagrant-api'      
         config.vm.network "private_network", ip: "192.168.50.6"
       end
       if role.eql? 'dev-api'      

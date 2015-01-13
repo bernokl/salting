@@ -1,6 +1,15 @@
 base:
-  '*':
+  'vagrant*':
     - global
+    - requirements
+  'vagrant-mysql*':
+    - mysql
+    - mysql.db_and_user
+  'vagrant-content*':
+    - apache
+    - wordpress
+    - php
+
 dev:
   'dev*':
     - requirements
@@ -11,6 +20,7 @@ dev:
     - apache
     - wordpress
     - php
+
 prod:
   'prod*':
     - requirements
