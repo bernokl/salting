@@ -17,6 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    prod-mysql
  }.each_with_index do |role, i|
   config.vm.define role  do |config|
+     config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     config.vm.box = "trusty"
     config.vm.provider "virtualbox" do |v|
     config.vm.synced_folder "salt/", "/srv", owner: "root", group: "root"

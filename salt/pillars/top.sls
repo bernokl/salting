@@ -1,4 +1,7 @@
 base:
+  '*':
+    - global
+dev:
   'dev*':
     - apache-dev
 prod:
