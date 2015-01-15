@@ -1,6 +1,8 @@
 base:
   '*':
     - global
+  'salt-master-digo':
+    - update-repos
 dev:
   'dev*':
     - requirements
