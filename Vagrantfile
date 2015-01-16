@@ -6,11 +6,12 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  %w{
-   api
-   content
-   mysql
+   vag-api
+   vag-mysql
+   vag-content
  }.each_with_index do |role, i|
   config.vm.define role  do |config|
+     config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     config.vm.box = "trusty"
     config.vm.provider "virtualbox" do |v|
     config.vm.synced_folder "salt/", "/srv", owner: "root", group: "root"
@@ -18,13 +19,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
     config.vm.hostname = role
 
-      if role.eql? 'mysql'
+      if role.eql? 'vag-mysql'
         config.vm.network "private_network", ip: "192.168.50.4"
       end
-      if role.eql? 'content'
+      if role.eql? 'vag-content'
         config.vm.network "private_network", ip: "192.168.50.5"
       end
-      if role.eql? 'api'      
+      if role.eql? 'vag-api'      
         config.vm.network "private_network", ip: "192.168.50.6"
       end
 
