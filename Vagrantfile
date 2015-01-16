@@ -6,15 +6,9 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  %w{
-   api
-   mysql
-   content
-   dev-mysql
-   dev-content
-   dev-mysql
-   prod-api
-   prod-content
-   prod-mysql
+   vag-api
+   vag-mysql
+   vag-content
  }.each_with_index do |role, i|
   config.vm.define role  do |config|
      config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
@@ -25,31 +19,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
     config.vm.hostname = role
 
-      if role.eql? 'mysql'
+      if role.eql? 'vag-mysql'
         config.vm.network "private_network", ip: "192.168.50.4"
       end
-      if role.eql? 'dev-mysql'
-        config.vm.network "private_network", ip: "192.168.50.4"
-      end
-      if role.eql? 'prod-mysql'
-        config.vm.network "private_network", ip: "192.168.50.4"
-      end
-      if role.eql? 'content'
+      if role.eql? 'vag-content'
         config.vm.network "private_network", ip: "192.168.50.5"
       end
-      if role.eql? 'dev-content'
-        config.vm.network "private_network", ip: "192.168.50.5"
-      end
-      if role.eql? 'prod-content'
-        config.vm.network "private_network", ip: "192.168.50.5"
-      end
-      if role.eql? 'api'      
-        config.vm.network "private_network", ip: "192.168.50.6"
-      end
-      if role.eql? 'dev-api'      
-        config.vm.network "private_network", ip: "192.168.50.6"
-      end
-      if role.eql? 'prod-api'      
+      if role.eql? 'vag-api'      
         config.vm.network "private_network", ip: "192.168.50.6"
       end
 

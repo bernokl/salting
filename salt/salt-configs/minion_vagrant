@@ -383,6 +383,8 @@ file_roots:
     - /srv/roots/
   prod:
     - /srv/roots/
+  vag:
+    - /srv/roots/
 ##   dev:
 #     - /srv/salt/dev/services
 #     - /srv/salt/dev/states
@@ -419,6 +421,8 @@ pillar_roots:
   dev:
     - /srv/pillars/
   prod:
+    - /srv/pillars/
+  vag:
     - /srv/pillars/
 
 

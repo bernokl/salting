@@ -23,4 +23,13 @@ prod:
   'prod-mysql*':
     - mysql
     - mysql.db_and_user
-
+vag:
+  'vag*':
+    - requirements
+  'vag-content*':
+    - apache
+    - wordpress
+    - php
+  'vag-mysql*':
+    - mysql
+    - mysql.db_and_user
