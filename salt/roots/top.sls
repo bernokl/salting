@@ -13,6 +13,9 @@ dev:
     - apache
     - wordpress
     - php
+  'dev-api*':
+    - apache
+    - php
 prod:
   'prod*':
     - requirements
@@ -23,6 +26,9 @@ prod:
   'prod-mysql*':
     - mysql
     - mysql.db_and_user
+  'prod-api*':
+    - apache
+    - php
 vag:
   'vag*':
     - requirements
@@ -33,3 +39,6 @@ vag:
   'vag-mysql*':
     - mysql
     - mysql.db_and_user
+  'vag-api*':
+    - apache
+    - php
