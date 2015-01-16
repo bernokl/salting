@@ -7,3 +7,6 @@ dev:
 prod:
   'prod*':
     - apache-prod
+vag:
+  'vag*':
+    - apache-prod
