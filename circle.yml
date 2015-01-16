@@ -5,6 +5,9 @@ machine:
 dependencies:
   pre:
     - sudo apt-get install fabric
+test:
+  pre:
+    - case "$CIRCLE_BRANCH" in dev) fab test_run_highstate_dev ;; master) fab test_run_highstate_master ;;  esac
 deployment:
     production:
       branch: master
