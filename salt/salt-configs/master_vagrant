@@ -345,6 +345,8 @@ auto_accept: True
 file_roots:
   base:
     - /srv/roots
+  vag:
+    - /srv/roots
 #   dev:
 #     - /srv/salt/dev/services
 #     - /srv/salt/dev/states
@@ -467,6 +469,8 @@ file_roots:
 # highstate format, and is generally just key/value pairs.
 pillar_roots:
   base:
+    - /srv/pillars
+  vag:
     - /srv/pillars
 #
 #ext_pillar:

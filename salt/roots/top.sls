@@ -39,6 +39,7 @@ vag:
   'vag-mysql*':
     - mysql
     - mysql.db_and_user
+    - mysql.grants
   'vag-api*':
     - apache
     - php

@@ -31,7 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.provision :salt do |config|
 
-      config.minion_config = "salt/salt-configs/minion_vagrant"
+      config.minion_config = "salt/salt-configs/minion_vagrant_w_master"
       config.minion_key = "salt/salt-keys/minion2.pem"
       config.minion_pub = "salt/salt-keys/minion2.pub"
 
@@ -52,7 +52,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network "private_network", ip: "192.168.50.3"
     config.vm.provision :salt do |config|
 
-      config.minion_config = "salt/salt-configs/minion_vagrant"
+      config.minion_config = "salt/salt-configs/minion_vagrant_w_master"
       config.minion_key = "salt/salt-keys/minion2.pem"
       config.minion_pub = "salt/salt-keys/minion2.pub"
 
