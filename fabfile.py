@@ -1,6 +1,6 @@
 from fabric.api import *
 
-env.key_filename='/home/ubuntu/.ssh/id_f70ba16b1ff4f07b9004d16026b4fb2f'
+env.key_filename='~/.ssh/id_104.131.88.230'
 env.user='root'
 env.hosts=['104.131.88.230']
 
