@@ -1,8 +1,8 @@
 from fabric.api import *
 
-env.key_filename='~/.ssh/id_digo-salt-master'
+env.key_filename='~/.ssh/104.131.88.230'
 env.user='root'
-env.hosts=['104.131.69.145']
+env.hosts=['104.131.88.230']
 
 def run_highstate_prod():
     sudo("salt 'salt-master*' state.sls salt-master-digo.update-repos")
