@@ -3,7 +3,7 @@ get_wordpress:
   file.managed:
     - name: /var/www/html/wordpress.tar.gz
     - source: http://wordpress.org/latest.tar.gz
-    - source_hash: md5=5adac1bfc61b793a1ca9bcb4d67b4d28
+    - source_hash: md5=ca0b978fd702eac033830ca2d0784b79
 
 untar_wordpress:
   module.run:

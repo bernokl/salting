@@ -37,7 +37,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       config.run_highstate = true
       config.install_type = "git"
-      config.install_args = "v2015.5.0"
+      config.install_args = "v2015.8.12"
       config.verbose = true
     end
   end
@@ -63,7 +63,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.install_master = true
       config.run_highstate = false
       config.install_type = "git"
-      config.install_args = "v2015.5.0"
+      config.install_args = "v2015.8.12"
       config.verbose = true
     end
   end
