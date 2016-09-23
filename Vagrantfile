@@ -11,16 +11,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    vag-content
  }.each_with_index do |role, i|
   config.vm.define role  do |config|
-     config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
-    config.vm.box = "trusty"
+     config.vm.box_url = "berno/salt-minion-1404"
+    config.vm.box = "berno/salt-minion-1404"
     config.vm.provider "virtualbox" do |v|
     config.vm.synced_folder "salt/", "/srv", owner: "root", group: "root"
-      v.customize ["modifyvm", :id, "--memory", "256"]
+      v.customize ["modifyvm", :id, "--memory", "1024"]
     end
     config.vm.hostname = role
 
       if role.eql? 'vag-mysql'
         config.vm.network "private_network", ip: "192.168.50.4"
+        config.vm.define "vag-mysql"
       end
       if role.eql? 'vag-content'
         config.vm.network "private_network", ip: "192.168.50.5"
@@ -29,15 +30,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         config.vm.network "private_network", ip: "192.168.50.6"
       end
 
-    config.vm.provision :salt do |config|
+    config.vm.provision :shell do |shell|
+      shell.inline = "rm -f /etc/salt/minion_id"
+    end
 
+    config.vm.provision :salt do |config|
+      
       config.minion_config = "salt/salt-configs/minion_vagrant"
       config.minion_key = "salt/salt-keys/minion2.pem"
       config.minion_pub = "salt/salt-keys/minion2.pub"
 
       config.run_highstate = true
       config.install_type = "git"
-      config.install_args = "v2015.8.12"
+      config.install_args = "v2016.3.2"
       config.verbose = true
     end
   end
@@ -63,7 +68,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.install_master = true
       config.run_highstate = false
       config.install_type = "git"
-      config.install_args = "v2015.8.12"
+      config.install_args = "v2016.3.2"
       config.verbose = true
     end
   end
