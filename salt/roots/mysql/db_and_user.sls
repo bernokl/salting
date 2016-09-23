@@ -1,5 +1,6 @@
 include:
   - mysql.python
+  - mysql
 
 wordpress_db:
   mysql_database.present:
